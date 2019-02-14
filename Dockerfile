@@ -12,14 +12,14 @@ RUN mkdir -p /data/www-app/localhost ; \
     mkdir -p /data/apps/nginx/sites-enabled; \
     mkdir -p /data/ssl/certs; \
     mkdir -p /data/ssl/private; \
-    mkdir -p /data/codecpetion; \
+    mkdir -p /data/codeception; \
     mv /etc/nginx /etc/.nginx && ln -s /data/apps/nginx/etc /etc/nginx; \
     usermod -d /home/nginx -m nginx;
 
 WORKDIR /data/www-app
 
 ADD ./nginx-conf/test-etc /data/apps/nginx/etc
-ADD ./codecpetion/ data/codeception
+ADD ./codeception/ /data/codeception
 
 RUN chmod -R +x /usr/local/bin; \
     chown  nginx /etc /data /run /usr; \
