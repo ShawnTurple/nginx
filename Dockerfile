@@ -19,7 +19,6 @@ RUN mkdir -p /data/www-app/localhost ; \
 WORKDIR /data/www-app
 
 ADD ./nginx-conf/test-etc /data/apps/nginx/etc
-ADD ./codeception/ /data/codeception
 
 RUN chmod -R +x /usr/local/bin; \
     chown  nginx /etc /data /run /usr; \
