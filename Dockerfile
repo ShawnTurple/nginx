@@ -4,7 +4,7 @@ FROM nginx:1.12.1
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
-    git curl vim libz-dev mysql-client ca-certificates less ;
+    git curl vim libz-dev mysql-client ca-certificates less libcap2-bin;
 
 
 RUN mkdir -p /data/www-app/localhost ; \
@@ -26,7 +26,9 @@ RUN chmod -R +x /usr/local/bin; \
     chown -R nginx:www-data /data/www-app; \
     chown -R nginx /data/apps/nginx /var /etc/nginx /usr/local /etc/alternatives /etc/ssl /tmp;\
     mkdir -p /home/nginx && chown -R nginx:nginx /home/nginx && chmod -R 0751 /home/nginx; \
-    usermod -a -G www-data nginx
+    usermod -a -G www-data nginx;
+
+RUN setcap cap_net_bind_service=ep /usr/sbin/nginx
 
 USER nginx
 CMD ["nginx", "-g", "daemon off;"]
