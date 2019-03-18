@@ -4,7 +4,7 @@ FROM nginx:1.12.1
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
-    git curl vim libz-dev mysql-client ca-certificates less libcap2-bin;
+    git curl vim libz-dev mysql-client ca-certificates less libcap2-bin  sendmail;
 
 
 RUN mkdir -p /data/www-app/localhost ; \
