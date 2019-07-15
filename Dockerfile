@@ -4,7 +4,8 @@ FROM nginx:1.12.1
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
-    git curl vim libz-dev mysql-client ca-certificates less libcap2-bin  sendmail;
+    git curl vim libz-dev mysql-client ca-certificates less libcap2-bin  sendmail; \
+    curl -o  /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar;
 
 
 RUN mkdir -p /data/www-app/localhost ; \
