@@ -4,7 +4,8 @@ FROM nginx:1.12.1
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
-    git curl vim libz-dev mysql-client ca-certificates less libcap2-bin  sendmail; \
+    git curl vim libz-dev mysql-client ca-certificates less libcap2-bin  sendmail \
+    php7.1-fpm php7.1-cli php7.1-curl php7.1-mysql; \
     curl -o  /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar;
 
 
